@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Copyright (c) 2021-2026 community-scripts ORG
-# Author: Kristian Skov
-# Updated for: Ubuntu 24.04 & SQL Server 2025
+# Author: Kristian Skov - Updated by Erdem Keskin
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://www.microsoft.com/en-us/sql-server/sql-server-2025
 
@@ -23,8 +22,7 @@ msg_ok "Installed Dependencies"
 
 msg_info "Setup SQL Server 2025"
 # Import the public GPG key
-curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg >/dev/null
-
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
 # Register the SQL Server 2025 Ubuntu 24.04 repository
 curl -fsSL https://packages.microsoft.com/config/ubuntu/24.04/mssql-server-2025.list | tee /etc/apt/sources.list.d/mssql-server-2025.list >/dev/null
 
